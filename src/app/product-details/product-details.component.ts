@@ -11,20 +11,16 @@ import { CartService } from '../services/cart.service';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  products?: Product;
-  
- 
+  product?: Product;
+  found: boolean = false;
+  items: Product[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private cartService: CartService) { }
 
   ngOnInit(): void {
-       //const routeParams = this.route.snapshot.paramMap;
-      // const productIdFromRoute = Number(routeParams.get('productId'));
-      // this.products = products.find(product => product.id === productIdFromRoute);
-      //console.log(this.products);
-
+    
 
       const id = +this.route.snapshot.paramMap.get('productId')!;
       //console.log(productIdFromRoute);
@@ -32,14 +28,38 @@ export class ProductDetailsComponent implements OnInit {
 
        this.cartService.getProduct(id).subscribe((data: Product) => {
          console.log(data);
-        this.products = data;
+        this.product = data;
        });
 
   }
 
-  addtoCart(products: Product) {
-    this.cartService.addtoCart(products);
-    //window.alert('Your product has been added to the cart!');
+  addtoCart(product: Product) {
+    
+    this.found = false;
+    this.items.forEach(element => {
+      if (element.id === product.id) {
+        this.found = true;
+        element.quantity += 1;
+      
+      }
+      
+    });
+
+    if(!this.found)
+    {
+        this.cartService.addtoCart(product);
+    }
+    
+    
   }
 
 }
+
+
+// getTotalPrice(): number {
+//   let grandTotal = 0;
+//   this.items.map((x: Product) => {
+//     grandTotal += x.price;
+//   })
+//   return grandTotal;
+// }

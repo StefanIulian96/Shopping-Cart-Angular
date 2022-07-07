@@ -9,6 +9,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 })
 export class CartService {
 
+  found: boolean = false;
   items: Product[] = [];
   idCart: number = 0;
   //public i: any = [];
@@ -49,10 +50,6 @@ export class CartService {
     
     this.items.push(product);
     this.productList.next(this.items);
-
-    console.log(this.items);
-    this.idCart++;
-    console.log(this.idCart);
   }
   getTotalPrice(): number {
     let grandTotal = 0;
