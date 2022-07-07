@@ -51,6 +51,17 @@ export class CartService {
     this.items.push(product);
     this.productList.next(this.items);
   }
+
+  quantity() {
+    let quantity = 1;
+    this.items.map((x: Product) => {
+      quantity += x.quantity;
+    })
+    console.log("qunatity = ", quantity)
+    return quantity;
+   
+  }
+
   getTotalPrice(): number {
     let grandTotal = 0;
     this.items.map((x: Product) => {

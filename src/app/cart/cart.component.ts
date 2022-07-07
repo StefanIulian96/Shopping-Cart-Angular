@@ -13,7 +13,7 @@ export class CartComponent implements OnInit {
   products: Product[] = [];
   public grandTotal !: number;
   //items = this.cartService.getItems();
-
+  
   confirmingDelete?: number;
 
 

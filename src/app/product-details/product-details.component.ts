@@ -30,6 +30,7 @@ export class ProductDetailsComponent implements OnInit {
          console.log(data);
         this.product = data;
        });
+       
 
   }
 
@@ -37,10 +38,10 @@ export class ProductDetailsComponent implements OnInit {
     
     this.found = false;
     this.items.forEach(element => {
+      
       if (element.id === product.id) {
         this.found = true;
         element.quantity += 1;
-      
       }
       
     });
@@ -49,12 +50,9 @@ export class ProductDetailsComponent implements OnInit {
     {
         this.cartService.addtoCart(product);
     }
-    
-    
+     
   }
-
 }
-
 
 // getTotalPrice(): number {
 //   let grandTotal = 0;
