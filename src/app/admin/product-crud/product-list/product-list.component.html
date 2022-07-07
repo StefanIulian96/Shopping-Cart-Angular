@@ -1,0 +1,36 @@
+<div class="content">
+    <h1>My Products</h1>
+    <button class="button is-link" routerLink='create'>Create new product</button>
+    <table class="table mx-auto">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Image URL</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{product.id}}</td>
+                <a [title]="product.name + ' details'" [routerLink]="['/products', product.id]">
+                    {{ product.name }}
+                </a>
+                <td>{{product.description}}</td>
+                <td>{{product.category}}</td>
+                <td>{{product.imageURL}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.quantity}}</td>
+                <td>
+                    <button class="button is-link" [routerLink]="['/admin/product/update', product.id]">Update</button>
+                    <button class="button is-danger" (click)="delete(product.id)">Remove</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,146 @@
+<!-- Implementare cu Reactive Forms -->
+
+<section>
+    <div class="columns mt-2">
+        <div class="column is-2 is-offset-3">
+            <form [formGroup]="createCategoryForm" (ngSubmit)="addCategory(createCategoryForm.value)">
+                <h1 class="title">Create Category</h1>
+                <div class="container">
+                    <label class="label">Name:</label>
+                    <input placehorlder="Name" class="control" name="name" formControlName="name">
+                    <label class="label">Description:</label>
+                    <input placehorlder="Name" class="control" name="description" formControlName="description">
+                </div>
+                <br>
+                <button class="button is-success">Add Category</button>
+            </form>
+        </div>
+        <div class="column is-2">
+            <form [formGroup]="deleteCategoryForm" (ngSubmit)="deleteCategory(deleteCategoryForm.value)">
+                <h1 class="title">Delete Category</h1>
+                <div class="container is-2">
+                    <label class="label">ID:</label>
+                    <input placehorlder="Name" class="control" name="id" formControlName="id">
+                </div>
+                <br>
+                <button class="button is-danger">Delete Category</button>
+            </form>
+        </div>
+        <div class="column is-2">
+            <form [formGroup]="updateCategoryForm"
+                (ngSubmit)="updateCategory(updateCategoryForm.value.id, updateCategoryForm.value)">
+                <h1 class="title">Update Category</h1>
+                <div class="container">
+                    <label class="label">Name:</label>
+                    <input placehorlder="Name" class="control" name="name" formControlName="name">
+                    <label class="label">Description:</label>
+                    <input placehorlder="Name" class="control" name="description" formControlName="description">
+                    <label class="label">ID:</label>
+                    <input placehorlder="Name" class="control" name="id" formControlName="id">
+                </div>
+                <br>
+                <button class="button is-success">Update Category</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="columns is-centered">
+        <div class="column is-narrow">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let category of categories">
+                    <tr>
+                        <th>{{category.id}}</th>
+                        <th>{{category.name}}</th>
+                        <th>{{category.description}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<div class="box has-text-centered">
+    <button class="button" (click)="getCategories()">Get All Categories</button>
+</div>
+
+
+
+<!--    Implementare cu Template-Driven Forms 
+    <section>
+    <div class="columns mt-2">
+        <div class="column is-2 is-offset-3">
+            <form #addCategoryForm="ngForm" (ngSubmit)="getCategories()">
+                <h1 class="title">Create Category</h1>
+                <div class="container">
+                    <label class="label">Name:</label>
+                    <input placehorlder="Name" class="control" name="name" ngModel>
+                    <label class="label">Description:</label>
+                    <input placehorlder="Name" class="control" name="description" ngModel>
+                </div>
+                <br>
+                <button class="button is-success" (click)="addCategory(addCategoryForm.value)">Add Category</button>
+            </form>
+        </div>
+        <div class="column is-2">
+            <form #deleteCategoryForm="ngForm" (ngSubmit)="deleteCategory(deleteCategoryForm.value.id)">
+                <h1 class="title">Delete Category</h1>
+                <div class="container is-2">
+                    <label class="label">ID:</label>
+                    <input placehorlder="Name" class="control" name="id" ngModel>
+                </div>
+                <br>
+                <button class="button is-danger">Delete Category</button>
+            </form>
+        </div>
+        <div class="column is-2">
+            <form #updateCategoryForm="ngForm"
+                (ngSubmit)="updateCategory(updateCategoryForm.value.id, updateCategoryForm.value)">
+                <h1 class="title">Update Category</h1>
+                <div class="container">
+                    <label class="label">Name:</label>
+                    <input placehorlder="Name" class="control" name="name" ngModel>
+                    <label class="label">Description:</label>
+                    <input placehorlder="Name" class="control" name="description" ngModel>
+                    <label class="label">ID:</label>
+                    <input placehorlder="Name" class="control" name="id" ngModel>
+                </div>
+                <br>
+                <button class="button is-success">Update Category</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="columns is-centered">
+        <div class="column is-narrow">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let category of categories">
+                    <tr>
+                        <th>{{category.id}}</th>
+                        <th>{{category.name}}</th>
+                        <th>{{category.description}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<div class="box has-text-centered">
+    <button class="button" (click)="getCategories()">Get All Categories</button>
+</div> -->
