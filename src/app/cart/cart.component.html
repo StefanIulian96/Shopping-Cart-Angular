@@ -37,7 +37,9 @@
                 <td>{{product.category}}</td>
                 <td>{{product.imageURL}}</td>
                 <td>{{product.price}}</td>
-                <td><textarea class="textarea" rows="1">{{product.quantity}}</textarea></td>
+                <td><button class="button is-danger mr-4"><i
+                    class="fa-solid fa-minus"></i></button>{{product.quantity}}<button class="button is-primary ml-4"><i
+                        class="fa-solid fa-plus"></i></button></td>
                 <td>
 
                     <button class="button is-danger" (click)="deleteProduct(product.id)"><i
