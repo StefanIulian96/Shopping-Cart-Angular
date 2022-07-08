@@ -37,9 +37,9 @@
                 <td>{{product.category}}</td>
                 <td>{{product.imageURL}}</td>
                 <td>{{product.price}}</td>
-                <td><button class="button is-danger mr-4"><i
-                    class="fa-solid fa-minus"></i></button>{{product.quantity}}<button class="button is-primary ml-4"><i
-                        class="fa-solid fa-plus"></i></button></td>
+                <td><button class="button is-danger mr-4" (click)="decrement()"><i class="fa-solid fa-minus"></i></button><input class="form-control"
+                        type="number" id="product.quantity" [(ngModel)]="product.quantity">{{product.quantity}}<button
+                        class="button is-primary ml-4" (click)="increment()"><i class="fa-solid fa-plus"></i></button></td>
                 <td>
 
                     <button class="button is-danger" (click)="deleteProduct(product.id)"><i

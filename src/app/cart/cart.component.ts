@@ -76,4 +76,21 @@ export class CartComponent implements OnInit {
     console.log(id);
   }
 
+  
+  increment(){
+
+    this.products.map((x: Product) => {
+      x.quantity += 1;
+    })
+  }
+
+    decrement(){
+
+      this.products.map((x: Product) => {
+        x.quantity -= 1;
+      })
+    
+
+}
+
 }
